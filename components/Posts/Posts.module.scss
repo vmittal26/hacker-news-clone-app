@@ -1,0 +1,13 @@
+.posts{
+
+  &-comments{
+    width: 0.4rem;
+    font-size: 0.9em;
+  }
+
+  &-upvotes{
+    width: 0.4rem;
+    font-size: 0.9em;
+    text-align: right;
+  }
+}

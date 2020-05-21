@@ -1,0 +1,29 @@
+.post-item {
+    display: flex;
+    align-items: center;
+  
+    &-username {
+      font-size: 0.7rem;
+      margin: 0 0.7em;
+  
+      span {
+        color: gray;
+      }
+    }
+  
+    &-domain {
+      color: gray;
+      font-size: 0.7rem;
+      margin: 0 0.7em;
+    }
+  
+    &-date {
+      font-size: 0.9em;
+    }
+  
+    &-hide{
+        margin-left: 0.5rem;
+        background-color: none;
+    }
+  }
+  
