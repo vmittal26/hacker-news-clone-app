@@ -2,4 +2,4 @@
 
 CHANGE LOG
 
-# 1.0.0 Hacker news clone app server side rendered with Next js
+## 1.0.0 Hacker news clone app server side rendered with Next js
