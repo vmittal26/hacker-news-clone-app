@@ -5,11 +5,20 @@ import { NextPageContext } from "next";
 import { Posts, AppLayout } from "../components";
 import { PostResponse, PostType } from "../model";
 
+const getPagePostsMap = ():Map<number,PostType[]>=> {
+ if(localStorage.getItem('pagePostsMap')){
+   console.log('data exists in local storage');
+   return new Map(JSON.parse(localStorage.pagePostsMap));
+ } else{
+   console.log('data does not exist local storage');
+   return new Map<number,PostType[]>();
+  }
+}
+
 interface HackerNewsProps {
   postResonse: PostResponse;
   pageNumber: number;
 }
-const pagePostsMap = new Map<number,PostType[]>();
 
 const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement => {
   const { hits : pagePosts } = postResonse;
@@ -19,15 +28,19 @@ const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement 
     console.log('on upvote' , postId);
     const post:PostType | undefined = posts.find(post => (post.objectID === postId));
     if(post!=null){
-      post.points = post.points+1;
-      pagePostsMap.set(pageNumber , posts);
-      setPosts([...posts]);
+        post.points = post.points+1;
+        const pagePostsStorage = getPagePostsMap();
+        pagePostsStorage.set(pageNumber , posts);
+        localStorage.pagePostsMap = JSON.stringify(Array.from(pagePostsStorage.entries()));
+        setPosts([...posts]);
     }
   }
 
   useEffect(()=>{
       console.log('bringing data...');
-      const currentPagePosts = pagePostsMap.get(pageNumber);
+      getPagePostsMap();
+      const pagePostMapFromLocalStorage = getPagePostsMap();
+      const currentPagePosts = pagePostMapFromLocalStorage.get(pageNumber);
       currentPagePosts!=null ?   setPosts([...currentPagePosts]) :   setPosts([...pagePosts]);
   },[pageNumber,pagePosts]);
   

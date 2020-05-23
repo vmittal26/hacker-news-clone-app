@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
 import { PostType } from "../../model";
-import { PostItem } from "../PostItem/PostItem";
 
 import styles from "./Posts.module.scss";
 import Image from "../Image";
+import { PostItem } from "../PostItem/PostItem";
 
 interface PostsProps {
   postItems: PostType[];
