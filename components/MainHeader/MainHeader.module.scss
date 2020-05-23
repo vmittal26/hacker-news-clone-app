@@ -1,9 +1,15 @@
 .main-header{
     display: flex;
+    max-width: 1000px;
+    margin: auto;
     font-size: 0.8rem;
     align-items: center;
-    background-color: rgb(255,102,0);
+    background-color:$app-color;
     padding:0.5em;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
 
     &-title{
         font-size: 1em;

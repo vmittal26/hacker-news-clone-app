@@ -1,7 +1,27 @@
-.hacker-news-list{
+.app-layout{
     max-width: 1000px;
+    width: 95%;
+    font-size: 1rem;
     margin: 0 auto;
     margin-top: 0.5rem;
     align-items: center;
     background: #f7f7f7;
+    overflow: auto;
+    height: 98vh;
+    position: relative;
+
+    &-next-page{
+        position: fixed;
+        border-radius: 2px;
+        background-color:$app-color;
+        text-decoration: none;
+        color:white;
+        padding:0.5rem 1rem;
+        z-index: 1000;
+        bottom: 1rem;
+        right:13rem;
+        &:hover{
+            background-color: rgba(255,102,0,0.8);
+        }
+    }
 }

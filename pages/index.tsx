@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from "react";
-import Link from "next/link";
 import { NextPageContext } from "next";
 
 import { Posts, AppLayout } from "../components";
@@ -45,11 +44,8 @@ const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement 
   },[pageNumber,pagePosts]);
   
   return (
-    <AppLayout title="Hacker News">
+    <AppLayout title="Hacker News" pageNumber={pageNumber}>
       <Posts postItems={posts} onUpvote={onUpvote} />
-      <Link href={`/?page=${pageNumber + 1}`}>
-        <a>More</a>
-      </Link>
     </AppLayout>
   );
 };
@@ -64,7 +60,7 @@ IndexPage.getInitialProps = async (context: NextPageContext) => {
   }
 
   const response = await fetch(
-    `https://hn.algolia.com/api/v1/search?page=${pageNumber}&hitsPerPage=20`
+    `https://hn.algolia.com/api/v1/search?page=${pageNumber}&hitsPerPage=40`
   );
   const postResonse = await response.json();
 

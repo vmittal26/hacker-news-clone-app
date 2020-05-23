@@ -1,21 +1,35 @@
-.posts{
+.posts {
+  margin-top: 1.5rem;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 0.7em;
+  }
 
-  &-comments{
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  &-comments {
     width: 0.4rem;
     font-size: 0.9em;
   }
 
-  &-upvotes{
+  &-upvotes {
     width: 2.5rem;
     align-items: center;
     display: flex;
     font-size: 0.9em;
     text-align: right;
 
-    img{
+    img {
       margin: 1px 2px;
       cursor: pointer;
     }
   }
-
 }

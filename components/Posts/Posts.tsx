@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
 import { PostType } from "../../model";
 
-import styles from "./Posts.module.scss";
 import Image from "../Image";
 import { PostItem } from "../PostItem/PostItem";
 
@@ -12,19 +11,19 @@ interface PostsProps {
 
 export const Posts = ({ postItems, onUpvote }: PostsProps): ReactElement => {
   return (
-    <div className={styles.posts}>
+    <div className={"posts"}>
       <table>
         <thead></thead>
         <tbody>
           {postItems
-            .filter((postItem: PostType) => postItem.title)
+            // .filter((postItem: PostType) => postItem.title)
             .map((postItem: PostType) => {
               return (
                 <tr key={postItem.objectID}>
-                  <td className={styles["posts-comments"]}>
+                  <td className={"posts-comments"}>
                     {postItem.num_comments}
                   </td>
-                  <td className={styles["posts-upvotes"]}>
+                  <td className={"posts-upvotes"}>
                     {postItem.points}
                     <Image
                       src={"./grayarrow.gif"}
