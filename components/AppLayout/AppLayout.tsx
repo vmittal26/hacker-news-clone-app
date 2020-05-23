@@ -1,15 +1,15 @@
-import * as React from "react";
 import Head from "next/head";
+import * as React from "react";
+import { MainHeader } from "../MainHeader/MainHeader";
 
 import styles from "./AppLayout.module.scss";
-import { MainHeader } from "../MainHeader/MainHeader";
 
 interface Props {
   title?: string;
   className?: string;
 }
 
-const AppLayout: React.FunctionComponent<Props> = ({
+export const AppLayout: React.FunctionComponent<Props> = ({
   children,
   title = "Hacker News",
   className,
@@ -27,5 +27,3 @@ const AppLayout: React.FunctionComponent<Props> = ({
     </div>
   );
 };
-
-export default AppLayout;

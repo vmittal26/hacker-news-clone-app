@@ -6,23 +6,24 @@ import { format } from "date-fns";
 import styles from "./PostItem.module.scss";
 
 export const PostItem = (props: PostType): ReactElement => {
-  const { title, userName, url: domain, created_at } = props;
+  const { title, author, url: domain, created_at } = props;
 
   let domainURL = getDomainURL(domain);
+  const baseClass = "post-item";
   return (
-    <div className={styles["post-item"]}>
-      <h4 className={styles["post-item-title"]}>{title}</h4>
-      <div className={styles["post-item-domain"]}>
+    <div className={styles[baseClass]}>
+      <h4 className={styles[`${baseClass}-title`]}>{title}</h4>
+      <div className={styles[`${baseClass}-domain`]}>
         {domainURL && `(${domainURL})`}
       </div>
-      <div className={styles["post-item-username"]}>
-        <span>by</span> {<strong>{userName}</strong>}
+      <div className={styles[`${baseClass}-username`]}>
+        <span>by</span> {<strong>{author}</strong>}
       </div>
-      <div className={styles["post-item-date"]}>{`on ${format(
+      <div className={styles[`${baseClass}-date`]}>{`on ${format(
         new Date(created_at),
         "dd-MMM-yyyy"
       )}`}</div>
-      <button className={styles["post-item-hide"]}>hide</button>
+      <button className={styles[`${baseClass}-hide`]}>hide</button>
     </div>
   );
 };

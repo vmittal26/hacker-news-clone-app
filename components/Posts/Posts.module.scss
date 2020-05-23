@@ -6,8 +6,16 @@
   }
 
   &-upvotes{
-    width: 0.4rem;
+    width: 2.5rem;
+    align-items: center;
+    display: flex;
     font-size: 0.9em;
     text-align: right;
+
+    img{
+      margin: 1px 2px;
+      cursor: pointer;
+    }
   }
+
 }

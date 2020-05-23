@@ -1,20 +1,39 @@
-import { NextPageContext } from "next";
+import { ReactElement, useEffect, useState } from "react";
 import Link from "next/link";
-import { ReactElement } from "react";
-import { Posts } from "../components";
-import AppLayout from "../components/AppLayout/AppLayout";
-import { PostResponse } from "../model";
+import { NextPageContext } from "next";
+
+import { Posts, AppLayout } from "../components";
+import { PostResponse, PostType } from "../model";
 
 interface HackerNewsProps {
   postResonse: PostResponse;
   pageNumber: number;
 }
+const pagePostsMap = new Map<number,PostType[]>();
 
 const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement => {
-  const { hits } = postResonse;
+  const { hits : pagePosts } = postResonse;
+  const [posts , setPosts] = useState<PostType[]>([]);
+
+  const onUpvote = (postId:number)=>{
+    console.log('on upvote' , postId);
+    const post:PostType | undefined = posts.find(post => (post.objectID === postId));
+    if(post!=null){
+      post.points = post.points+1;
+      pagePostsMap.set(pageNumber , posts);
+      setPosts([...posts]);
+    }
+  }
+
+  useEffect(()=>{
+      console.log('bringing data...');
+      const currentPagePosts = pagePostsMap.get(pageNumber);
+      currentPagePosts!=null ?   setPosts([...currentPagePosts]) :   setPosts([...pagePosts]);
+  },[pageNumber,pagePosts]);
+  
   return (
     <AppLayout title="Hacker News">
-      <Posts postItems={hits} />
+      <Posts postItems={posts} onUpvote={onUpvote} />
       <Link href={`/?page=${pageNumber + 1}`}>
         <a>More</a>
       </Link>

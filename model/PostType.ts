@@ -8,7 +8,6 @@ export interface PostType{
         author:string;
         points:number;
         title:string;
-        userName:string;
         url:string;
         created_at:string;
 }
