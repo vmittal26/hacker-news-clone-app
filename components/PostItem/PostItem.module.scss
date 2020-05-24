@@ -13,7 +13,7 @@
   }
 
   .item {
-    margin-left: 0.3rem;
+    margin-left: 0.4rem;
     white-space: nowrap;
   }
 
@@ -32,21 +32,25 @@
   }
 
   &-hide {
-    span{
+    span {
       color: gray;
       margin: 3px;
       font-weight: normal;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
     font-size: 0.75rem;
     font-weight: 700;
     outline: none;
     background-color: transparent;
     cursor: pointer;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem;
     border: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: $phone-breakpoint) {
   .post-item {
     display: flex;
     flex-direction: row;

@@ -28,11 +28,11 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $phone-breakpoint) {
   .posts{
     &-upvotes {
       display: flex;
-      width: 1.2rem;
+      width: 1rem;
       align-items: center;
     
       img {
