@@ -20,7 +20,7 @@ export const MainHeader = ({pageNumber } :MainHeaderProps): ReactElement => {
       />
       <h1 className={`${baseClassName}-title`}>Hacker News</h1>
       <Link href={`/?page=${pageNumber + 1}`}>
-          <a className={`${baseClassName}-next-page`}>More >></a>
+          <a className={`${baseClassName}-next-page`}>Next >></a>
         </Link>
     </div>
   );
