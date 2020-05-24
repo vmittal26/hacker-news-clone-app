@@ -6,10 +6,11 @@ import { PostItem } from "../PostItem/PostItem";
 
 interface PostsProps {
   postItems: PostType[];
+  onHidePost:(postId: number)=>void;
   onUpvote: (postId: number) => void;
 }
 
-export const Posts = ({ postItems, onUpvote }: PostsProps): ReactElement => {
+export const Posts = ({ postItems, onUpvote , onHidePost }: PostsProps): ReactElement => {
   return (
     <div className={"posts"}>
       <table>
@@ -35,7 +36,7 @@ export const Posts = ({ postItems, onUpvote }: PostsProps): ReactElement => {
                     </div>
                   </td>
                   <td>
-                    <PostItem {...postItem} />
+                    <PostItem postType ={postItem} onHidePost={onHidePost}/>
                   </td>
                 </tr>
               );

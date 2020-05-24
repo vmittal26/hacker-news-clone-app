@@ -35,6 +35,15 @@ const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement 
     }
   }
 
+  const onHidePost = (postId:number)=>{
+    console.log('on hidePost' , postId);
+    const postsFiltered = posts.filter(post => (post.objectID !== postId));
+    const pagePostsStorage = getPagePostsMap();
+    pagePostsStorage.set(pageNumber , postsFiltered);
+    localStorage.pagePostsMap = JSON.stringify(Array.from(pagePostsStorage.entries()));
+    setPosts([...postsFiltered]);
+  }
+
   useEffect(()=>{
       console.log('bringing data...');
       const pagePostMapFromLocalStorage = getPagePostsMap();
@@ -44,7 +53,7 @@ const IndexPage = ({ postResonse, pageNumber, }: HackerNewsProps): ReactElement 
   
   return (
     <AppLayout title='Hacker News' pageNumber={pageNumber}>
-      <Posts postItems={posts} onUpvote={onUpvote} />
+      <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </AppLayout>
   );
 };

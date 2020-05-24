@@ -3,8 +3,13 @@ import { PostType } from '../../model';
 import getDomainURL from '../../utils/getDomainURL';
 import { format } from 'date-fns';
 
-export const PostItem = (props: PostType): ReactElement => {
-  const { title, author, url: domain, created_at } = props;
+interface PostTypeProps{
+  onHidePost:(postId:number)=>void;
+  postType:PostType
+}
+
+export const PostItem = ({ postType , onHidePost }: PostTypeProps): ReactElement => {
+  const { title, author, url: domain, created_at , objectID} = postType;
   let domainURL = getDomainURL(domain);
   const baseClass = 'post-item';
   const itemClass = 'item';
@@ -27,7 +32,7 @@ export const PostItem = (props: PostType): ReactElement => {
           new Date(created_at),
           'dd-MMM-yyyy'
         )}`}</div>
-        <button className={`${baseClass}-hide ${itemClass}`}>
+        <button className={`${baseClass}-hide ${itemClass}`} onClick={()=>onHidePost(objectID)}>
           <span>[</span>hide<span>]</span>
         </button>
       </div>
