@@ -12,8 +12,26 @@
     right:0;
 
     &-title{
-        font-size: 1em;
+        font-size: 0.8rem;
         padding:0;
         margin:0 0.7rem;
     }
+
+    &-next-page{
+        text-decoration: none;
+        background-color: darken($app-color,5%);
+        cursor: pointer;
+        color: $black-color;
+        outline: none;
+        border: 1px solid $black-color;
+        margin-left: auto;
+        padding:0.2rem 1rem;
+        &:hover{
+            background-color: lighten($app-color,20%);
+        }
+        &:active{
+            background-color: lighten($app-color,10%);
+        }
+    }
+
 }

@@ -1,35 +1,45 @@
 .posts {
   margin-top: 1.5rem;
+
   table {
     border-collapse: collapse;
     width: 100%;
-    font-size: 0.8rem;
   }
   td,
   th {
-    text-align: left;
-    padding: 0.7em;
+    text-align: center;
+    padding: 0.4rem 0.5rem;
   }
 
   tr:nth-child(even) {
     background-color: #dddddd;
   }
 
-  &-comments {
-    width: 0.4rem;
-    font-size: 0.9em;
-  }
-
   &-upvotes {
-    width: 2.5rem;
-    align-items: center;
     display: flex;
-    font-size: 0.9em;
-    text-align: right;
-
+    width: 1.2rem;
+    align-items: center;
+  
     img {
-      margin: 1px 2px;
+      margin: 2px;
+      margin-top: -2px;
       cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .posts{
+    &-upvotes {
+      display: flex;
+      width: 1.2rem;
+      align-items: center;
+    
+      img {
+        margin: 3px;
+        margin-top: -2px;
+        cursor: pointer;
+      }
     }
   }
 }

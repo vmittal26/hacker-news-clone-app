@@ -1,28 +1,54 @@
 .post-item {
+  display: flex;
+  flex-direction: column;
+
+  &-section-1 {
     display: flex;
     align-items: center;
-  
-    &-username {
-      font-size: 0.7rem;
-      margin: 0 0.7em;
-  
-      span {
-        color: gray;
-      }
-    }
-    &-domain {
+  }
+
+  &-section-2 {
+    display: flex;
+    align-items: center;
+  }
+
+  .item {
+    margin-left: 0.3rem;
+    white-space: nowrap;
+  }
+
+  &-title {
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+    background-color: none;
+  }
+  &-username {
+    span {
       color: gray;
-      font-size: 0.7rem;
-      margin: 0 0.7em;
-    }
-  
-    &-date {
-      font-size: 0.9em;
-    }
-  
-    &-hide{
-        margin-left: 0.5rem;
-        background-color: none;
     }
   }
-  
+  &-domain {
+    color: gray;
+  }
+
+  &-hide {
+    span{
+      color: gray;
+      margin: 3px;
+      font-weight: normal;
+    }
+    font-size: 0.75rem;
+    font-weight: 700;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border: none;
+  }
+}
+@media (min-width: 768px) {
+  .post-item {
+    display: flex;
+    flex-direction: row;
+  }
+}

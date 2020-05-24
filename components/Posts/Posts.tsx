@@ -6,7 +6,7 @@ import { PostItem } from "../PostItem/PostItem";
 
 interface PostsProps {
   postItems: PostType[];
-  onUpvote: (postId:number) => void;
+  onUpvote: (postId: number) => void;
 }
 
 export const Posts = ({ postItems, onUpvote }: PostsProps): ReactElement => {
@@ -18,18 +18,21 @@ export const Posts = ({ postItems, onUpvote }: PostsProps): ReactElement => {
           {postItems
             // .filter((postItem: PostType) => postItem.title)
             .map((postItem: PostType) => {
+              const { num_comments, objectID, points } = postItem;
               return (
-                <tr key={postItem.objectID}>
-                  <td className={"posts-comments"}>
-                    {postItem.num_comments}
+                <tr key={objectID}>
+                  <td>
+                    <span className="posts-comments">{num_comments}</span>
                   </td>
-                  <td className={"posts-upvotes"}>
-                    {postItem.points}
-                    <Image
-                      src={"./grayarrow.gif"}
-                      alt={"hackernews-logo"}
-                      onClick={()=>onUpvote(postItem.objectID)}
-                    />
+                  <td>
+                    <div className="posts-upvotes">
+                      <span>{points}</span>
+                      <Image
+                        src={"./grayarrow.gif"}
+                        alt={"hackernews-logo"}
+                        onClick={() => onUpvote(objectID)}
+                      />
+                    </div>
                   </td>
                   <td>
                     <PostItem {...postItem} />
