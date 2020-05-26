@@ -1,0 +1,16 @@
+@mixin primary-button {
+    text-decoration: none;
+    background-color: lighten($app-color,15%);
+    cursor: pointer;
+    color: $black-color;
+    white-space: nowrap;
+    outline: none;
+    border: 1px solid $black-color;
+    padding:0.2rem 1rem;
+    &:hover{
+        background-color: darken($app-color,5%);
+    }
+    &:active{
+        background-color: lighten($app-color,8%);
+    }
+}

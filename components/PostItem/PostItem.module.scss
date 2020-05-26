@@ -1,37 +1,35 @@
 .post-item {
   display: flex;
-  flex-direction: column;
-
-  &-section-1 {
-    display: flex;
-    align-items: center;
-  }
-
-  &-section-2 {
-    display: flex;
-    align-items: center;
-  }
+  align-items: center;
+  flex-wrap: wrap;
 
   .item {
+    text-align: left;
     margin-left: 0.4rem;
-    white-space: nowrap;
+    white-space: normal;
   }
-
-  &-title {
+  .post-title {
     font-size: 0.7rem;
     margin-left: 0.5rem;
     background-color: none;
   }
-  &-username {
+  .post-username {
     span {
       color: gray;
     }
   }
-  &-domain {
+  .post-domain {
     color: gray;
   }
 
-  &-hide {
+  .post-hide {
+    font-size: 0.75rem;
+    font-weight: 700;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.2rem;
+    border: none;
     span {
       color: gray;
       margin: 3px;
@@ -41,18 +39,16 @@
         margin-left: 0;
       }
     }
-    font-size: 0.75rem;
-    font-weight: 700;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0.2rem;
-    border: none;
   }
 }
 @media (min-width: $phone-breakpoint) {
   .post-item {
     display: flex;
-    flex-direction: row;
+    flex-wrap: none;
+    align-items: center;
+    .item {
+      margin-left: 0.4rem;
+      white-space: nowrap;
+    }
   }
 }

@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
-import { PostType } from "../../model";
+import { ReactElement } from 'react';
+import { PostType } from '../../model';
 
-import Image from "../Image";
-import { PostItem } from "../PostItem/PostItem";
+import Image from '../Image';
+import { PostItem } from '../PostItem/PostItem';
 
 interface PostsProps {
   postItems: PostType[];
@@ -12,7 +12,7 @@ interface PostsProps {
 
 export const Posts = ({ postItems, onUpvote , onHidePost }: PostsProps): ReactElement => {
   return (
-    <div className={"posts"}>
+    <div className={'posts'}>
       <table>
         <thead></thead>
         <tbody>
@@ -23,14 +23,14 @@ export const Posts = ({ postItems, onUpvote , onHidePost }: PostsProps): ReactEl
               return (
                 <tr key={objectID}>
                   <td>
-                    <span className="posts-comments">{num_comments}</span>
+                    <span className='posts-comments'>{num_comments}</span>
                   </td>
                   <td>
-                    <div className="posts-upvotes">
+                    <div className='posts-upvotes'>
                       <span>{points}</span>
                       <Image
-                        src={"./grayarrow.gif"}
-                        alt={"hackernews-logo"}
+                        src={'./grayarrow.gif'}
+                        alt={'hackernews-logo'}
                         onClick={() => onUpvote(objectID)}
                       />
                     </div>
