@@ -5,18 +5,20 @@ import Link from 'next/link';
 
 interface MainHeaderProps{
   pageNumber:number;
+  onHomeClick:()=>void;
 }
 // import styles from './MainHeader.module.scss';
 
-export const MainHeader = ({pageNumber} :MainHeaderProps): ReactElement => {
+export const MainHeader = ({pageNumber , onHomeClick} :MainHeaderProps): ReactElement => {
   const baseClassName = 'main-header';
 
   return (
     <div className={baseClassName}>
       <Image
         src={'./logo.gif'}
-        style={{ border: '1px white solid' }}
+        style={{ border: '1px white solid' , cursor:'pointer' }}
         alt={'hackernews-logo'}
+        onClick={onHomeClick}
       />
       <h1 className={`${baseClassName}-title`}>Hacker News</h1>
       <div className="main-header-buttons">

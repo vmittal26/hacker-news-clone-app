@@ -35,6 +35,9 @@ const IndexPage = ({ postResonse, pageNumber, isError}: HackerNewsProps): ReactE
     }
   }
 
+  const onHomeClick = ()=>{
+    Router.push("/");
+  }
   const onHidePost = (postId:number)=>{
     console.log('on hidePost' , postId);
     const postsFiltered = posts.filter(post => (post.objectID !== postId));
@@ -55,7 +58,7 @@ const IndexPage = ({ postResonse, pageNumber, isError}: HackerNewsProps): ReactE
     return <Error statusCode={503}/>
   }
   return (
-    <AppLayout title='Hacker News' pageNumber={pageNumber}>
+    <AppLayout title='Hacker News' pageNumber={pageNumber} onHomeClick={onHomeClick}>
       <Posts postItems={posts} onUpvote={onUpvote} onHidePost={onHidePost} />
     </AppLayout>
   );

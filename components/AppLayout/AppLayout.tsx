@@ -8,6 +8,7 @@ import { MainHeader } from "../MainHeader/MainHeader";
 interface Props {
   title?: string;
   className?: string;
+  onHomeClick:()=>void;
   pageNumber: number;
 }
 
@@ -15,6 +16,7 @@ export const AppLayout: React.FunctionComponent<Props> = ({
   children,
   title = "Hacker News",
   className,
+  onHomeClick,
   pageNumber = 0,
 }) => {
   const baseClassName = "app-layout";
@@ -26,7 +28,7 @@ export const AppLayout: React.FunctionComponent<Props> = ({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Hacker News Clone app" />
       </Head>
-      <MainHeader pageNumber={pageNumber}/>
+      <MainHeader pageNumber={pageNumber} onHomeClick={onHomeClick}/>
       {children}
       <footer></footer>
     </div>
