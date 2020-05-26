@@ -30,7 +30,7 @@ export const Posts = ({ postItems, onUpvote , onHidePost }: PostsProps): ReactEl
                       <span>{points}</span>
                       <Image
                         src={'./grayarrow.gif'}
-                        alt={'hackernews-logo'}
+                        alt={'click to upvote the story'}
                         onClick={() => onUpvote(objectID)}
                       />
                     </div>

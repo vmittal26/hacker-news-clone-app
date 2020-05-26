@@ -26,7 +26,7 @@ export const AppLayout: React.FunctionComponent<Props> = ({
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Hacker News Clone app" />
+        <meta name="description" content="Hacker news always shows latest and authentic news around the globe" />
       </Head>
       <MainHeader pageNumber={pageNumber} onHomeClick={onHomeClick}/>
       {children}

@@ -14,7 +14,7 @@ export const PostItem = ({ postType , onHidePost }: PostTypeProps): ReactElement
   let domainURL = getDomainURL(domain);
   return (
     <div className='post-item'>
-     <h4 className="post-title item"> {title ? title : NO_TITLE_EXISTS}</h4>
+     <h2 className="post-title item"> {title ? title : NO_TITLE_EXISTS}</h2>
       <span className="post-domain item">{domainURL && `(${domainURL})`}</span>
       <span className="item">by  <strong>{author}</strong></span>
       <span className="item">{`on ${format(
